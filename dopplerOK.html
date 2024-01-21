@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js"></script>
+
+    <head>
+        <link rel="shortcut icon" href="#">
+        <title>
+            Doppler effect
+        </title>
+        <style>
+           .f1{font-style: italic; background-color:transparent; font-weight: bold; font-size:xx-large;}
+           .f2{font-style: italic; font-size:x-large; }
+           .f3{font-style: italic; font-size:x-large; color: red; font-weight: bold;}
+           .f4{font-style: italic; font-size:x-large; color: red; font-weight: bold;
+            position:absolute; bottom:12%; right: 30%;}
+            .f5{font-style: italic; font-size:x-large; color: red; font-weight: bold;
+            position:absolute; bottom:5%; right: 30%;}
+            .bod1{
+                background-image: url('1.png');                 
+                background-repeat: no-repeat;                
+                height: 100%;
+                background-size: cover; }
+            
+            .b1{position: absolute;bottom: 70%; 
+                background-color: lightgreen;color: black;
+                width: 200px;  font-size: 20px;   padding: 10px; 
+                border-radius: 5px;  text-align: center;cursor:pointer;}
+            .b2{position: absolute;bottom: 60%; 
+                background-color: lightgreen;color: black;
+                width: 200px;  font-size: 20px;   padding: 10px; 
+                border-radius: 5px;  text-align: center; cursor:pointer;}
+            .b3{position: absolute;bottom: 47%; 
+                background-color: lightgreen;color: black;
+                width: 200px;  font-size: 20px;   padding: 10px; 
+                border-radius: 5px;  text-align: center;cursor:pointer;}
+            .b4{position: absolute; bottom: 15%; 
+                background-color: lightgreen;color: black;
+                width: 200px;  font-size: 20px;   padding: 10px; 
+                border-radius: 5px;  text-align: center;cursor:pointer;}
+            .b5{position: absolute;bottom: 58%; left:20%;
+                background-color: green;color: black;
+                width: 200px;  font-size: 15px;   padding: 10px; 
+                border-radius: 5px;  text-align: center;cursor:pointer;}
+            .b6{position: absolute;bottom: 58%; left:20%;
+                background-color: green;color: black;
+                width: 200px;  font-size: 15px;   padding: 10px; 
+                border-radius: 5px;  text-align: center;cursor:pointer;}
+            .b7{position: absolute;bottom: 20%; right:20.5%;
+                background-color: green;color: black;
+                width: 200px;  font-size: 15px;   padding: 10px; 
+                border-radius: 5px;  text-align: center;cursor:pointer;}
+            .b8{position: fixed;bottom: 10%; right:10%;
+            background-color: lightgreen;color: black;
+            width: 200px;  font-size: 20px;   padding: 10px; 
+            border-radius: 5px;  text-align: center;cursor:pointer;}
+            .b9{position: absolute; bottom: 5%; 
+                background-color: lightgreen;color: black;
+                width: 200px;  font-size: 20px;   padding: 10px; 
+                border-radius: 5px;  text-align: center;cursor:pointer;}
+            par1{color: blue};
+            .panel{position: absolute;bottom: 58.5%; left:60%; background-color: transparent;height: 40%; width:40%}
+            .panel2{font-style: italic; font-weight: bold; color: blue; font-size: larger;  position: absolute;
+                bottom: 53.5%;       left:60%; background-color: transparent;height: 40%; width:40%}
+            .canv{position: absolute;bottom: 28.5%; left:60%; width: 80%;}
+            .canv2{position: absolute;bottom: 28.5%; left:60%; background-color: aquamarine;height: 40%; width:40%}
+            .th{font-style:oblique; font-size:larger; font-weight: bold; color:black; }
+            .que{font-style: italic;  color: black; font-weight: bolder; font-size: larger;}
+            
+            
+        </style>
+    </head>
+    <body class="bod1">        
+        <aa>
+        <center><p> <font size="50" class="f1"><u>Doppler effect</u> </font></p></center>
+        <button class="b1"; onclick="fun1()">Θεωρία</button>
+        <button class="b2"; onclick="fun2()">Διαγράμματα</button>
+        <button class="b3"; onclick="fun3()">Τεστ πολλαπλής επιλογής</button>
+        </aa>
+
+
+  
+
+        <script>
+            
+            
+            function fun1(){
+                document.body.style.backgroundImage = "url('2.png')";
+              
+                document.querySelector("aa").innerHTML=`        
+                    <center><p> <font size="50" class="f1"><u>Θεωρία</u> </font></p></center>
+                    <div class="th">
+                    <p class="theor1">
+                        <par1> Ι)Φαινόμενο Doppler στον ήχο.<br> </par1>
+                        Αρχικά, σημειώνεται πως η ταχύτητα του ήχουν στην Γήινη ατμόσφαιρα είναι u=343 m/s.
+                        <br> Μπορεί για απλοποίηση να χρησιμοποιηθεί u=340 m/s αν και δεν συνίσταται.
+                        <br>
+                        Ο Ήχος δεν διαδίδεται στον κενό χώρο, δηλαδή u=0, όταν δεν υπάρχει ύλη.
+                        <br>
+                        <br>
+                        Το φαινόμενο doppler είναι η αλλαγή στην συχνότητα ή μήκος κύματος της πηγή που παρατηρεί
+                        παραρητής λόγω της κίνησης του ιδίου ή/και λόγω της κίνησης της πηγής.
+                        <br>
+                        <br>
+                        Στην πιο απλή μορφή του, θεωρείται ομαλή κίνηση (μη επιταχυνόμενη) είτε του παρατηρητή ή/και της πηγής.
+                        <br>
+                        <br>
+                        Θεωρόντας την ευθεία που ενώνει τον παραυηρητή με την πηγή κι επισής ως θετική την κίνηση πάνω σε αυτήν την ευθεία
+                        <br>
+                        ως κίνηση από τον παρατηρητή προς την πηγή, τότε η συχνότητα που μετράει ο παρατηρητής δίνεται από τον τύπο:
+                        <br>                        
+                        <p class="ab1"> </p>
+                        <br> 
+                        <ab33> Ομοίως το μήκος κύματος που μετράει ο παρατηρητής δίνεται από τον τύπο: </ab33>
+                            <p class="ab2"> </p>
+                        <br>
+                    Σημειώνεται πως οι ταχύτητες πρέπει να μπουν με σωστό προσήμο.
+                    <br>
+                    Ορίζεται η ευθεία από τον παρατηρητή προς την πηγή. Κίνηση πάνω σε αυτήν την ευθεία από παρατηρητή 
+                    προς πηγή έχει θετική ταχύτητα, ενώ κίνηση πάνω σε αυτήν την ευθεία από πηγή προς παρατηρητή έχει αρνητική ταχύτητα.                
+                    <br>
+                    <br>
+                    <par1>ΙΙ)Φαινόμενο Doppler σε ηλεκτρομαγνητική ακτινοβολία.<br></par1>
+                    Το φαινόμενο Doppler έχει πολλές εφαρμογές.<br>
+                    Μία εφαρμογή είναι στην αστρονομία. <br>
+                    Γνωρίζοντας από ποια στοιχεία αποτελείται η επιφάνεια ενός ουράνιου σώματος, <br>
+                    είναι γνωστή η συχνότητα εκπομπής αυτού του ουράνιου σώματος. <br>
+                    Αλλαγές σε αυτήν την συχνότητα, ωφείλονται σε σχετική κίνηση του ουράνιου σώματος προς τον παρατηρητή και <br>
+                    μπορεί να βρεθεί η ταχύτητα και η κατεύθυνση του ουράνιου σώματος ως προς εμάς.
+                    <br>
+                    Στην περίπτωση όμως που χρησιμοποιούνται ηλεκτρομαγνητικά κύματα, αλλάζει η εξίσωση μεταξύ παρατηρούμενης και
+                    <br> παραγόμενης συχνοτήτας. 
+                    <br>Ο διορθωμένος τύπος είναι:
+                    <p class="ab3"> </p>
+                    όπου c η ταχύτητα του φωτός και u η σχετική ταχύτητα μεταξύ ουράνιου σώματος και παρατηρητή.
+                    <br> <br>
+                    
+                    Το φαινόμενο Doppler προσπαθεί να εξηγήσει το φαινομένο της ερυθρομετατόποισης.<br>
+                    Η σωστή έκφραση προέρχεται από την θεωρία της γενικής σχετικότητας, γιατί η πραγματική αιτία είναι η διαστολή του ιδίου χώρου.
+                    <br>
+                    Ως πρώτη  απλή προσέγγιση, θεωρείται πως λόγω της διαστολής του σύμπαντος, ουράνια σώματα απομακρύνονται από την Γη και αυτή η απομάκρυνση αυξάνει <br>
+                    το παρατηρούμενο μήκος κύματος της εκπεμπόμενης ηλεκτρομαγνητικής ακτινοβολίας, κάνοντας τα να φαίνονται "πιο κόκκινα".
+                    <br>
+                
+                    </p>
+                    
+                   
+                    </div>
+                    <form action="dopplerOK.html"> <button class="b8"; onclick="f()">back</button></form>` 
+                    
+                    document.querySelector(".ab1").innerHTML=String.raw`<span>$$f_{παρατηρητή}=\frac{u+u_{παρατηρητή}}
+                        {u+u_{πηγής}}f_{πηγής},\text{ } όπου\text{ }  u \text{ } η \text{ } ταχύτητα\text{ }  ήχου$$</span>`;                   
+                    document.querySelector(".ab2").innerHTML=String.raw`<span>$$λ_{παρατηρητή}=\frac{u}{f_{παρατηρητή}}=
+                       \frac{1}{f_{πηγής}} \frac{u+u_{πηγής}}{1+\frac{u_{παρατηρητή}}{u}}$$</span>`;     
+                       document.querySelector(".ab3").innerHTML=String.raw`<span>$$f_{παρατηρητή}=\sqrt{\frac{c-u}
+                        {c+u}}f_{πηγής}$$</span>`;                     
+                                 
+                       
+                       MathJax.typeset();
+
+                }
+                function fun2()
+            {                    
+                
+                    document.querySelector("aa").innerHTML=` <center><p> <font size="50" class="f1"><u>Διαγράμματα</u> </font></p></center>
+
+                    <p><font class="f2">Δώσε εκπεμπόμενη συχνότητα της πηγής: </font><a1> </a1></p>
+                    <p><input placeholder="Συχνότητα [Hz]"; class="in1"; onkeydown="let key1=event.key; if(key1==='Enter'){fun4()}"></p> 
+
+                    <p><font class="f2">Δώσε ταχύτητα παρατηρητή: </font><a2> </a2></p> 
+                    <p><input placeholder="Default 0 [m/s]" class="in2" onkeydown="let key2=event.key; if(key2==='Enter'){fun4()}"></p> 
+
+                    <p><font class="f2">Δώσε ταχύτητα πηγής: </font><a3> </a3></p>
+                    <p><input placeholder="Default 0 [m/s]" class="in3" onkeydown="let key3=event.key; if(key3==='Enter'){fun4()}"></p> 
+
+                    <button class="b6"; onclick="fun4()">Υπολογισμός συχνότητα παρατηρητή</button>
+
+                    <p><p class="pwrong"></p> <b1></b1></p>
+                    <cc1 class="panel" id="panelid"></cc1>
+                    <div class="canv" id="canvid"> <canvas  id="myChart" style="width:100%;max-width:600px"></canvas></div>  
+
+                    <form action="dopplerOK.html"> <button class="b4"; >back</button></form>`
+
+            }
+
+
+            function fun3()
+            {document.body.style.backgroundImage = "url('3.png')";
+
+                                document.querySelector("aa").innerHTML=`<center><p> <font size="50" class="f1"><u>Τεστ πολλαπλής επιλογής </u></font></p></center>
+                        
+                                <div class="que">
+                                            
+                        <label for="id1">Ποια είναι η ταχύτητα του ήχου στην ατμόσφαιρα;</label>
+                        <p>Απάντηση:
+                        <select name="name1" id="id1">
+                        <option value="ap0">Επιλογή απάντησης </option>
+                        <option value="ap1">3000 m/s </option>
+                        <option value="ap2">343 km/h</option>
+                        <option value="ap3">343 m/s</option>
+                        <option value="ap4">300 km/s</option>
+                        </select>
+                    </p>
+                    <label for="id2">Αν ο παρατηρητής κινείται προς ακίνητη πηγή, η συχνότητα που μετρά</label>
+                    <p>Απάντηση:
+                    <select name="name2" id="id2">
+                    <option value="ap0">Επιλογή απάντησης </option>
+                    <option value="ap1">είναι μεγαλύτερη της συχνότητας της πηγής</option>
+                    <option value="ap2">είναι μικρότερη της συχνότητα της πηγής"</option>
+                    <option value="ap3">είναι ίση με την συχνότητα της πηγής</option>
+                    <option value="ap4">δεν είναι εφικτό να κρίνουμε</option>
+                    </select>
+                </p>
+                <label for="id3">Πότε χρησιμοποιείτε αρνητικό πρόσημο για την ταχύτητα (είτε πηγής, είτε παρατηρητή);</label>
+                <p>Απάντηση:
+                <select name="name3" id="id3">
+                <option value="ap0">Επιλογή απάντησης </option>
+                <option value="ap1">Πάντα</option>
+                <option value="ap2">Τα βάζουμε με ότι πρόσημο θέλουμε αρκει τα πρόσημα να είναι ίδια</option>
+                <option value="ap3">Όταν η κίνηση είναι αντίθετης κατεύθυνσης από την κατεύθυνση της ευθείας παρατηρητη προς πηγή</option>
+                <option value="ap4">Όταν η κίνηση είναι ίδιας κατεύθυνσης από την κατεύθυνση της ευθείας παρατηρητη προς πηγή</option>
+                </select>
+                </p>
+                <label for="id4">Το μήκος κύματος του μετρά ο παρατηρητής</label>
+                <p>Απάντηση:
+                <select name="name4" id="id4">
+                <option value="ap0">Επιλογή απάντησης </option>
+                <option value="ap1">Είναι ανάλογο της συχνότητας που μετρά</option>
+                <option value="ap2">Είναι αντιστρόφος ανάλογο της συχνότητας που μετρά</option>
+                <option value="ap3">Δεν εξαρτάται από την συχνότητα που μετρά</option>
+                <option value="ap4">Κανένα από τα παραπάνω</option>
+                </select>
+                </p>
+                <label for="id5">Αν ο παρατηρητής πηγαίνει προς πηγή με ταχύτητα 10 m/s και η πηγή απομακρύνεται 
+                    από παρατηρητή με 10 m/s, τότε η συχνότητα που μετρά ο παρατηρητής</label>
+                <p>Απάντηση:
+                <select name="name5" id="id5">
+                <option value="ap0">Επιλογή απάντησης </option>
+                <option value="ap1">Είναι ίση με την συχνότητα της πηγής</option>
+                <option value="ap2">Είναι μικρότερη από την συχνότητα της πηγής</option>
+                <option value="ap3">Είναι μεγαλύτερη από την συχνότητα της πηγής</option>
+                <option value="ap4">Κανένα από τα παραπάνω</option>
+                </select>
+                </p>
+                <label for="id6">Πηγή παράγει σήμα συχνότητας 100 Ηz, παρατηρητής κινείται προς πηγής με 10 m/s, η συχνότητα που μετρά είναι</label>
+                <p>Απάντηση:
+                <select name="name6" id="id6">
+                <option value="ap0">Επιλογή απάντησης </option>
+                <option value="ap1">100 Hz</option>
+                <option value="ap2">102.91 Hz</option>
+                <option value="ap3">99.55 Hz</option>
+                <option value="ap4">200 Hz</option>
+                </select>
+                </p>
+                <label for="id7">Πηγή παράγει σήμα συχνότητας 100 Ηz, παρατηρητής κινείται προς πηγής με 10 m/s, το μήκος κύματος που μετρά είναι</label>
+                <p>Απάντηση:
+                <select name="name7" id="id7">
+                <option value="ap0">Επιλογή απάντησης </option>
+                <option value="ap1">3.33 m</option>
+                <option value="ap2">3.33 nm</option>
+                <option value="ap3">3.33 Hz</option>
+                <option value="ap4">3.33 km</option>
+                </select>
+                </p>
+               </div>
+                </form>
+                <div class="f4"></div>
+
+                <div class="f5"></div>
+
+                <button class="b7" onclick=f5()>Έλεγχος απαντήσεων </button>
+                <form action="dopplerOK.html"> <button class="b9"; >back</button></form>     `
+
+            }
+
+
+
+            function fun4()
+            {
+                
+                let realfreq=document.querySelector(".in1").value;
+                let velpar=document.querySelector(".in2").value;
+                let velsource=document.querySelector(".in3").value;
+                if(isNaN(realfreq)===false)
+                {
+                    if (realfreq<0)
+                    {
+                        document.querySelector(".pwrong").innerHTML="<font size='30' class='f3'>Δώσε συχνότητα μεγαλύτερη ή ίση του 0!</font>";
+                        document.querySelector("a1").innerHTML="<font size='30' class='f3'>(!)</font>";
+                    }
+                    else
+                    {
+                        realfreq=Number(realfreq);
+                        document.querySelector(".pwrong").innerHTML="";
+                        document.querySelector("a1").innerHTML="";                   
+                    }
+                }
+                else
+                {
+                    document.querySelector(".pwrong").innerHTML="<font size='30' class='f3'>Δώσε αριθμό ως συχνότητα!</font>";
+                    document.querySelector("a1").innerHTML="<font size='30' class='f3'>(!)</font>";
+                }
+                //__________________________________________________
+                if(isNaN(velpar)===true && velpar!="")
+                {
+                    document.querySelector("b1").innerHTML="<font size='30' class='f3'>Δώσε αριθμό ως ταχύτητα!</font>";
+                    document.querySelector("a2").innerHTML="<font size='30' class='f3'>(!)</font>";
+                }
+                else if (velpar==="") 
+                            {
+                                velpar=0;
+                                document.querySelector("a2").innerHTML="";
+                            }
+                else
+                {
+                    document.querySelector("a2").innerHTML="";
+                    velpar=Number(velpar);
+                }
+                //_______________________________________________________
+                if(isNaN(velsource)===true && velsource!="")
+                {
+                    document.querySelector("b1").innerHTML="<font size='30' class='f3'>Δώσε αριθμό ως ταχύτητα!</font>";
+                    document.querySelector("a3").innerHTML="<font size='30' class='f3'>(!)</font>";
+                }
+                else 
+                    if (velsource==="") 
+                        {
+                            velsource=0;
+                            document.querySelector("a3").innerHTML="";
+                        }
+                else
+                {
+                    document.querySelector("a3").innerHTML="";
+                    velsource=Number(velsource);
+                }
+                if (isNaN(velsource)===false && isNaN(velpar)===false)
+                {
+                    document.querySelector("b1").innerHTML=""; 
+                }
+                          
+               if(isNaN(realfreq)===false && realfreq!="" && realfreq>=0 && isNaN(velpar)===false && isNaN(velsource)===false)
+               {
+                
+               let freqpar=(343+velpar)/(343+velsource)*realfreq;   
+               document.getElementById("panelid").className = "panel2";
+               document.querySelector("cc1").innerHTML=`<p>Συχνότητας πηγής: ${realfreq} Hz  <p>Συχνότητα που μετρά ο παρατηρητής: ${freqpar} Hz</p></p><p>Wave length που παράγει η πηγή: ${343/realfreq} m</p> <p>Wave length που λαβμάνει παρατηρητής: ${343/freqpar} m </p>`;
+               
+               plot(realfreq,freqpar);
+               }
+               else if (realfreq==="")
+               {
+                document.querySelector(".pwrong").innerHTML="<font size='30' class='f3'>Δώσε συχνότητα!</font>";
+                document.querySelector("a1").innerHTML="<font size='30' class='f3'>(!)</font>";
+                
+               }
+            }
+            
+
+            function f5()
+            {
+                let score=0;
+                if (document.querySelector('#id1').value==="ap3"){score+=1}
+                if (document.querySelector('#id2').value==="ap1"){score+=1}
+                if (document.querySelector('#id3').value==="ap3"){score+=1}
+                if (document.querySelector('#id4').value==="ap2"){score+=1}
+                if (document.querySelector('#id5').value==="ap1"){score+=1}
+                if (document.querySelector('#id6').value==="ap2"){score+=1}
+                if (document.querySelector('#id7').value==="ap1"){score+=1}
+                document.querySelector(".f4").innerHTML=`Πέτυχες ${score} στις 7 σωστές απαντήσεις!`
+                if (score>=5 && score <7)
+                {document.querySelector(".f5").innerHTML="Λίγο έμεινε για το Άριστα!"}
+                else if (score===7) {document.querySelector(".f5").innerHTML="Πήρες Άριστα!"}
+                else {document.querySelector(".f5").innerHTML="Χρειάζεσαι περισσότερο διάβασμα!"}
+
+
+            }
+            function plot(f1,f2)
+            {
+                
+                document.getElementById("canvid").className = "canv2";
+                document.getElementById("canvid").style.visibility = "visible";
+                let data=tsint(f1,f2);
+                new Chart
+                ("myChart", 
+                    {
+                        type: "line",
+                        data: 
+                        {
+                            labels: data[0],
+                            datasets: [{
+                            label:"Συχνότητα πηγής",
+                            data: data[1],
+                            borderColor: "blue",
+                            borderDash: [5, 5],
+                            pointRadius: 0,
+                            fill: false
+                            },
+                            {
+                            data: data[2],
+                            label:"Συχνότητα παρατηρητή",
+                            borderColor: "red",
+                            pointRadius: 0,
+                            fill: false
+                            }]
+                        },
+                        options: 
+                        {
+                            legend:{display: true},
+                            scales: 
+                            {
+                                yAxes: 
+                                [{
+                                    scaleLabel: 
+                                    {
+                                        display: true,
+                                        labelString: 'sin(2πf*t)'
+                                    }
+                                }],
+                                xAxes: 
+                                [{
+                                    scaleLabel: 
+                                    {
+                                    display: true,
+                                    labelString: 't [sec]'
+                                    }
+                                }]
+                            }
+                    
+                        }
+                    }
+                );
+            }
+
+
+            function tsint(f1,f2)
+            {
+                let maxs=2/f1;
+                let t=[];
+                let sint1=[];
+                let sint2=[];
+                for (let i=0;i<10000;i+=1)
+                {
+                    t.push(Math.random()*maxs);
+                }
+                t=t.sort();
+                for (let i=0;i<10000;i+=1)
+                {
+                    sint1.push(Math.sin(2*Math.PI*f1*t[i]));
+                    sint2.push(Math.sin(2*Math.PI*f2*t[i]));
+                }
+                return [t,sint1,sint2];
+            }
+
+
+
+            </script>    
+        </body>
+</html>
